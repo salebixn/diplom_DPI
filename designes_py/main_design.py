@@ -547,6 +547,183 @@ class Ui_Dialog(object):
         self.pushButton_10.setDefault(False)
         self.pushButton_10.setFlat(False)
         self.pushButton_10.setObjectName("pushButton_10")
+        self.listWidget_3 = QtWidgets.QListWidget(parent=Dialog)
+        self.listWidget_3.setGeometry(QtCore.QRect(640, 50, 411, 531))
+        self.listWidget_3.setStyleSheet("QListWidget {\n"
+"background-color: rgb(96, 112, 255);\n"
+"border-radius: 8px;\n"
+"}\n"
+"\n"
+" QScrollBar:vertical {\n"
+"     border: 2px solid grey;\n"
+"     background: rgb(96, 112, 255);\n"
+"     width: 10px;\n"
+"     margin: 22px 0 22px 0;\n"
+" }\n"
+" QScrollBar::handle:vertical {\n"
+"     background: #32CC99;\n"
+"     min-height: 20px;\n"
+" }\n"
+" QScrollBar::add-line:vertical {\n"
+"     border: 2px solid grey;\n"
+"     background: #32CC99;\n"
+"     height: 20px;\n"
+"     subcontrol-position: bottom;\n"
+"     subcontrol-origin: margin;\n"
+" }\n"
+"\n"
+" QScrollBar::sub-line:vertical {\n"
+"     border: 2px solid grey;\n"
+"     background: #32CC99;\n"
+"     height: 20px;\n"
+"     subcontrol-position: top;\n"
+"     subcontrol-origin: margin;\n"
+" }\n"
+" QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"     border: 2px solid grey;\n"
+"     width: 3px;\n"
+"     height: 3px;\n"
+"     background: white;\n"
+" }\n"
+"\n"
+" QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"     background: none;\n"
+" }\n"
+"\n"
+"QScrollBar:horizontal {\n"
+"    border: 2px solid grey;\n"
+"    background: rgb(96, 112, 255);\n"
+"    height: 10px;\n"
+"    margin: 0px 20px 0 20px;\n"
+"}\n"
+"QScrollBar::handle:horizontal {\n"
+"    background: #32CC99;\n"
+"    min-width: 20px;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:horizontal {\n"
+"    border: 2px solid grey;\n"
+"    background: #32CC99;\n"
+"    width: 20px;\n"
+"    subcontrol-position: right;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar::sub-line:horizontal {\n"
+"    border: 2px solid grey;\n"
+"    background: #32CC99;\n"
+"    width: 20px;\n"
+"    subcontrol-position: left;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar:left-arrow:horizontal, QScrollBar::right-arrow:horizontal {\n"
+"    border: 2px solid grey;\n"
+"    width: 3px;\n"
+"    height: 3px;\n"
+"    background: white;\n"
+"}\n"
+"\n"
+"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
+"    background: none;\n"
+"}")
+        self.listWidget_3.setObjectName("listWidget_3")
+        self.label_3 = QtWidgets.QLabel(parent=Dialog)
+        self.label_3.setGeometry(QtCore.QRect(820, 10, 101, 31))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.label_3.setFont(font)
+        self.label_3.setObjectName("label_3")
+        self.pushButton_11 = QtWidgets.QPushButton(parent=Dialog)
+        self.pushButton_11.setGeometry(QtCore.QRect(970, 19, 81, 21))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_11.sizePolicy().hasHeightForWidth())
+        self.pushButton_11.setSizePolicy(sizePolicy)
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Window, brush)
+        self.pushButton_11.setPalette(palette)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.pushButton_11.setFont(font)
+        self.pushButton_11.setMouseTracking(False)
+        self.pushButton_11.setStyleSheet("background-color: rgb(96, 112, 255);\n"
+"border-radius: 8px;")
+        self.pushButton_11.setDefault(False)
+        self.pushButton_11.setFlat(False)
+        self.pushButton_11.setObjectName("pushButton_11")
+        self.pushButton_12 = QtWidgets.QPushButton(parent=Dialog)
+        self.pushButton_12.setGeometry(QtCore.QRect(640, 20, 111, 21))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_12.sizePolicy().hasHeightForWidth())
+        self.pushButton_12.setSizePolicy(sizePolicy)
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(96, 112, 255))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Window, brush)
+        self.pushButton_12.setPalette(palette)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.pushButton_12.setFont(font)
+        self.pushButton_12.setMouseTracking(False)
+        self.pushButton_12.setStyleSheet("background-color: rgb(96, 112, 255);\n"
+"border-radius: 8px;")
+        self.pushButton_12.setDefault(False)
+        self.pushButton_12.setFlat(False)
+        self.pushButton_12.setObjectName("pushButton_12")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -564,3 +741,6 @@ class Ui_Dialog(object):
         self.pushButton_8.setText(_translate("Dialog", "Посмотреть визиты"))
         self.pushButton_9.setText(_translate("Dialog", "Количество просмотров"))
         self.pushButton_10.setText(_translate("Dialog", "Уникальные пользователи"))
+        self.label_3.setText(_translate("Dialog", "Заявки"))
+        self.pushButton_11.setText(_translate("Dialog", "Обновить"))
+        self.pushButton_12.setText(_translate("Dialog", "Отправить СМС"))

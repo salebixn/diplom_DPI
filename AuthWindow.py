@@ -1,3 +1,6 @@
+import uuid
+import datetime
+
 import requests
 from PyQt6 import QtWidgets, QtCore
 
@@ -11,11 +14,13 @@ class AuthWindow(QtWidgets.QDialog, design.Ui_Dialog):
         # Это здесь нужно для доступа к переменным, методам
         # и т.д. в файле design.py
         super().__init__()
-        self.setupUi(self)  # Это нужно для инициализации нашего дизайна
+            
+        self.setupUi(self) # Это нужно для инициализации нашего дизайна
 
         # Hide window header
         # self.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
 
+        
         self.pushButton_2.clicked.connect(self.ok_click)
 
     def ok_click(self):
@@ -38,5 +43,10 @@ class AuthWindow(QtWidgets.QDialog, design.Ui_Dialog):
             self.label_3.setText('Вы не правильно ввели данные')
         else:
             self.close()
+            user_uuid = str(uuid.uuid4())
+            with open('user_uuid.txt', 'w') as file:
+                file.write(user_uuid)
+
+            requests.post(f'{URL_API}/auth/', data={'uuid': user_uuid})
             self.window = MainWindow()  # Создаём объект класса ExampleApp
             self.window.show()
