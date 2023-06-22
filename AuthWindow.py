@@ -43,10 +43,16 @@ class AuthWindow(QtWidgets.QDialog, design.Ui_Dialog):
             self.label_3.setText('Вы не правильно ввели данные')
         else:
             self.close()
-            user_uuid = str(uuid.uuid4())
-            with open('user_uuid.txt', 'w') as file:
-                file.write(user_uuid)
 
+            with open('user_uuid.txt', 'r') as file:
+                user_uuid = file.read()
+            auth = requests.get(f'{URL_API}/auth/?uuid={user_uuid}').json()
+            if auth['auth'] == 'User does not exist':
+                user_uuid = str(uuid.uuid4())
+                with open('user_uuid.txt', 'w') as file:
+                    file.write(user_uuid)
+            
             requests.post(f'{URL_API}/auth/', data={'uuid': user_uuid})
+            
             self.window = MainWindow()  # Создаём объект класса ExampleApp
             self.window.show()

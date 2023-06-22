@@ -1,6 +1,7 @@
 import os
 
 import requests
+from PIL import Image
 from PyQt6 import QtWidgets, QtGui
 
 import designes_py.images_design as design
@@ -19,10 +20,10 @@ class ImagesWindow(QtWidgets.QDialog, design.Ui_Dialog):
             response = requests.get(image['image'])
 
             if response.status_code != 404:
-                with open(f"./projects_images_cache/{image['image'].split('/')[-1]}", 'wb') as file:
+                with open(f"{os.path.abspath('.')}/projects_images_cache/{image['image'].split('/')[-1]}", 'wb') as file:
                     file.write(response.content)
 
-                pixmap = QtGui.QPixmap(f"./projects_images_cache/{image['image'].split('/')[-1]}").scaled(200, 200)
+                pixmap = QtGui.QPixmap(f"{os.path.abspath('.')}/projects_images_cache/{image['image'].split('/')[-1]}").scaled(200, 200)
                 lbl = QtWidgets.QLabel(self)
                 lbl.setPixmap(pixmap)
                 self.horizontalLayout.addWidget(lbl)
@@ -42,21 +43,25 @@ class ImagesWindow(QtWidgets.QDialog, design.Ui_Dialog):
     def selectMultiFiles(self):
         filter = "PNG (*.png);;JPG (*.JPG)"
         file_window = QtWidgets.QFileDialog()
-        files = file_window.getOpenFileNames(self, "Open files", "/home/qt/projects_images_cache", filter)
-        print(files)
+        files = file_window.getOpenFileNames(self, 'Open files', f"{os.path.abspath('.')}/projects_images_cache", filter)
+
         if files:
             for filename in files[0]:
-                print(f'filename:{filename}')
                 self.uploadFile(filename)
+
+    # Сжатие изображений перед загрузкой
+    def compressImages(self, filepath):
+        filename = filepath
+        print(os.stat(filename).st_size)
+        image = Image.open(filename)
+        if image.height > 300 or image.width > 300:
+            image.thumbnail((300, 300))
+            image.save(filename)
 
     def uploadFile(self, filepath):
         filename = filepath
-        # with open(filepath, 'rb') as f:
-        #     file_content = QByteArray(f.read())
 
+        self.compressImages(filename)
+        print(os.stat(filename).st_size)
         with open(f'{filename}', 'rb') as f:
             response = requests.post(f'{URL_API}/upload-images/', data={'project_id': self.project_id}, files={'file': f})
-
-        # url = f'{URL_API}/upload-files'
-        # data = {'file': (file_name, file_content)}
-        # response = requests.post(url, files=data)

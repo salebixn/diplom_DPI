@@ -1,5 +1,8 @@
+import re
+
 import requests
 from PyQt6 import QtWidgets
+import matplotlib.pyplot as plt
 
 import designes_py.views_pages_design as design
 from config import URL_API
@@ -20,6 +23,7 @@ class ViewsPagesWindow(QtWidgets.QDialog, design.Ui_Dialog):
         self.label_4.setText(self.os)
         
         self.pushButton_4.clicked.connect(self.visits)
+        self.pushButton_5.clicked.connect(self.graphic)
 
         
 
@@ -33,4 +37,19 @@ class ViewsPagesWindow(QtWidgets.QDialog, design.Ui_Dialog):
             self.listWidget.addItem(f"{response['time_intervals'][i][0]} - {str(int(response['data'][0]['metrics'][0][i]))}")
 
 
-
+    def graphic(self):
+        self.listWidget.clear()
+        first_date = self.dateEdit.text()
+        last_date = self.dateEdit_2.text()
+        response = getViewsPages(self.os, first_date, last_date)
+        dates = []
+        print(response['data'][0]['metrics'][0])
+        for item in response['time_intervals']:
+            dates.append(re.sub('202[0-9]-', '', item[0]))
+        print(dates)
+        plt.plot(dates, response['data'][0]['metrics'][0])
+        plt.title('Просмотры')
+        plt.xlabel('Даты')
+        plt.ylabel('Количество просмотров')
+        plt.xticks(fontsize=8, rotation=90)
+        plt.show()

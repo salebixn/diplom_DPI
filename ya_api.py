@@ -44,7 +44,9 @@ def getVisits(os: str, first_date, last_date) -> dict:
         'day': last_date.split('.')[0],
     }
     
-    url = f"https://api-metrika.yandex.net/stat/v1/data/bytime?row_ids=%5B%5B%22{os}%22%5D%5D&date1={first_date['year']}-{first_date['month']}-{first_date['day']}&date2={last_date['year']}-{last_date['month']}-{last_date['day']}&group=day&dimensions=ym:s:operatingSystemName&ids={YA_COUNTER_ID}&accuracy=medium&metrics=ym:s:visits&lang=ru"
+    url = f"""https://api-metrika.yandex.net/stat/v1/data/bytime?row_ids=%5B%5B%22{os}%22%5D%5D&date1={first_date['year']}
+    -{first_date['month']}-{first_date['day']}&date2={last_date['year']}-{last_date['month']}-{last_date['day']}&group=day&
+    dimensions=ym:s:operatingSystemName&ids={YA_COUNTER_ID}&accuracy=medium&metrics=ym:s:visits&lang=ru"""
 
     return requests.get(url).json()
 
@@ -62,7 +64,9 @@ def getViewsPages(os: str, first_date, last_date) -> dict:
         'day': last_date.split('.')[0],
     }
     
-    url = f"https://api-metrika.yandex.net/stat/v1/data/bytime?row_ids=%5B%5B%22{os}%22%5D%5D&date1={first_date['year']}-{first_date['month']}-{first_date['day']}&date2={last_date['year']}-{last_date['month']}-{last_date['day']}&group=day&dimensions=ym:s:operatingSystemName&ids={YA_COUNTER_ID}&accuracy=medium&metrics=ym:s:pageviews&lang=ru"
+    url = f"""https://api-metrika.yandex.net/stat/v1/data/bytime?row_ids=%5B%5B%22{os}%22%5D%5D&date1={first_date['year']}
+    -{first_date['month']}-{first_date['day']}&date2={last_date['year']}-{last_date['month']}-{last_date['day']}&group=day&
+    dimensions=ym:s:operatingSystemName&ids={YA_COUNTER_ID}&accuracy=medium&metrics=ym:s:pageviews&lang=ru"""
 
     return requests.get(url).json()
 
@@ -80,6 +84,8 @@ def getUniqueUsers(os: str, first_date, last_date) -> dict:
         'day': last_date.split('.')[0],
     }
     
-    url = f"https://api-metrika.yandex.net/stat/v1/data/bytime?row_ids=%5B%5B%22{os}%22%5D%5D&date1={first_date['year']}-{first_date['month']}-{first_date['day']}&date2={last_date['year']}-{last_date['month']}-{last_date['day']}&group=day&dimensions=ym:s:operatingSystemName&ids={YA_COUNTER_ID}&accuracy=medium&metrics=ym:s:users&lang=ru"
+    url = f"""https://api-metrika.yandex.net/stat/v1/data/bytime?row_ids=%5B%5B%22{os}%22%5D%5D&date1={first_date['year']}
+    -{first_date['month']}-{first_date['day']}&date2={last_date['year']}-{last_date['month']}-{last_date['day']}&group=day&
+    dimensions=ym:s:operatingSystemName&ids={YA_COUNTER_ID}&accuracy=medium&metrics=ym:s:users&lang=ru"""
 
     return requests.get(url).json()
